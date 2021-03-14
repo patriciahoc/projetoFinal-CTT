@@ -10,10 +10,10 @@ const Header = () => {
     <>
       <Container>
         <div className="container-logo">
-          <a href="/home">
+          <NavLink to="/home">
             <img src={Logo1} alt="" />
             <img src={Logo2} alt="" />
-          </a>
+          </NavLink>
         </div>
         <div className="container-rotas">
           <NavLink to="/">Login</NavLink>

@@ -5,18 +5,18 @@ import { Redirect } from "react-router";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
 
-import { postLoginRequest } from "../../store/ducks/user/actions";
-import { User } from "./LoginTypes";
+import { postLoginRequest } from "../../store/ducks/userLogin/actions";
+import { UserLogin } from "./LoginTypes";
 import { Container } from "./style";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { register, handleSubmit, errors } = useForm<User>();
+  const { register, handleSubmit, errors } = useForm<UserLogin>();
   const user = useSelector((state: any) => state.usersReducer);
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data: User) => {
+  const onSubmit = (data: UserLogin) => {
     dispatch(postLoginRequest(data));
     toast("Verifique permissão");
   };
@@ -54,7 +54,7 @@ const Login = () => {
               min: 8,
             })}
           />
-          {errors.password && <p role="alert">Campo Obrigatório</p>}
+          {errors.password && <span role="alert">Campo Obrigatório</span>}
         </div>
         <div className="content-role">
           <label>Nivel de acesso</label>
@@ -68,7 +68,7 @@ const Login = () => {
         </div>
         <input type="submit" />
 
-        {user.accessToken || user.role ? <Redirect to="/Home" /> : <Toaster />}
+        {user.accessToken || user.role ? <Redirect to="/home" /> : <Toaster />}
       </form>
     </Container>
   );

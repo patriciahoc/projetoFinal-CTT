@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
-import { postLoginFailure, postLoginSuccess } from "../user/actions";
+import { postLoginFailure, postLoginSuccess } from "./actions";
 import { UserResponse } from "./types";
-import UsersService from "../../../services/User/user-service";
+import UsersService from "../../../services/UserLogin/user-service";
 
 export function* login(action: any) {
   try {

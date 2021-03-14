@@ -1,4 +1,4 @@
-import userApi from "./api";
+import userApi from "../api";
 
 const UsersService = {
   login: (user: any) => userApi.post("/login", user),

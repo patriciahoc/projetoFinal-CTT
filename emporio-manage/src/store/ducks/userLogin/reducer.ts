@@ -2,14 +2,17 @@ import { Reducer } from "redux";
 import { UserAction, UserState } from "./types";
 import { decodeToken } from "react-jwt";
 
-const INITIAL_STATE_USER: UserState = {
+const INITIAL_STATE_USER_LOGIN: UserState = {
   accessToken: undefined,
   loading: false,
   error: false,
   role: undefined,
 };
 
-const usersReducer: Reducer = (state = INITIAL_STATE_USER, action: any) => {
+const usersReducer: Reducer = (
+  state = INITIAL_STATE_USER_LOGIN,
+  action: any
+) => {
   switch (action.type) {
     case UserAction.POST_LOGIN_REQUEST:
       return {
