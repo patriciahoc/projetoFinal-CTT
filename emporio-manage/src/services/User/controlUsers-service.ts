@@ -1,4 +1,4 @@
-import api from "../api";
+import { api } from "../api";
 
 const ControlUsersService = {
   getUsers: (user: any) => api.get("/users?role=admin&role=editor", user),

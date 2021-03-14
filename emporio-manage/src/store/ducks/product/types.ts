@@ -12,6 +12,14 @@ export enum ProductAction {
   DEL_PRODUCT_REQUEST = "@product/DEL_PRODUCT_REQUEST",
 }
 
-export interface ProductState {}
+export interface ProductState {
+  items: Product[];
+}
 
-export interface ProductReponse {}
+export interface Product {
+  title: string;
+  price: string;
+  description: string;
+  image: string;
+  id: number;
+}

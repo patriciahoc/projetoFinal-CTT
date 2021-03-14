@@ -10,8 +10,8 @@ export const postProductSuccess = (data: any) =>
 export const postProductFailure = () =>
   action(ProductAction.POST_PRODUCT_FAILURE);
 
-export const getProductRequest = (product: any) =>
-  action(ProductAction.GET_PRODUCT_REQUEST, product);
+export const getProductRequest = () =>
+  action(ProductAction.GET_PRODUCT_REQUEST);
 
 export const getProductSuccess = (data: any) =>
   action(ProductAction.GET_PRODUCT_SUCCESS, data);

@@ -7,12 +7,12 @@ import {
   postProductFailure,
   postProductSuccess,
 } from "./actions";
-import { ProductReponse } from "./types";
+import { Product } from "./types";
 import ProductService from "../../../services/Product/procuct-service";
 
 export function* postProducts(action: any) {
   try {
-    const response: ProductReponse = yield call(
+    const response: Product = yield call(
       ProductService.postProduct,
       action.payload
     );
@@ -25,10 +25,7 @@ export function* postProducts(action: any) {
 
 export function* getProducts(action: any) {
   try {
-    const response: ProductReponse = yield call(
-      ProductService.getProduct,
-      action.payload
-    );
+    const response: Product[] = yield call(ProductService.getProduct);
 
     yield put(getProductSuccess(response));
   } catch (error) {
@@ -38,7 +35,7 @@ export function* getProducts(action: any) {
 
 export function* deleteProducts(action: any) {
   try {
-    const response: ProductReponse = yield call(
+    const response: Product = yield call(
       ProductService.deleteProduct,
       action.payload
     );

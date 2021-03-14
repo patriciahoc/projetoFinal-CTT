@@ -1,9 +1,9 @@
-import api from "../api";
+import { api, headers } from "../api";
 
 const productService = {
-  deleteProduct: (product: any) => api.delete(`/beers/${product.id}`),
+  deleteProduct: (id: number) => api.delete(`/beers/${id}`, headers()),
   postProduct: (product: any) => api.post("/beers/", product),
-  getProduct: (product: any) => api.get("/beers/", product),
+  getProduct: () => api.get("/beers/", headers()),
 };
 
 export default productService;
