@@ -3,7 +3,7 @@ import { ProductAction, ProductState } from "./types";
 
 const INITIAL_STATE_CONTROL_PRODUCT: ProductState = {};
 
-const ProductReducer: Reducer = (
+const productsReducer: Reducer = (
   state = INITIAL_STATE_CONTROL_PRODUCT,
   action: any
 ) => {
@@ -32,4 +32,4 @@ const ProductReducer: Reducer = (
   }
 };
 
-export default ProductReducer;
+export default productsReducer;

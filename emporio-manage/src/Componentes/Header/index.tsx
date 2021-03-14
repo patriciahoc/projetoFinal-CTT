@@ -16,8 +16,10 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="container-rotas">
-          <NavLink to="/">Login</NavLink>
-          <h3>Usuário</h3>
+          <NavLink to="/">Login / Sair</NavLink>
+
+          <NavLink to="/emporio">Site Empório</NavLink>
+          <h3>Usuário - admin</h3>
         </div>
       </Container>
     </>
