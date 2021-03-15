@@ -1,13 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import { useDispatch } from "react-redux";
 import { postProductRequest } from "../../../store/ducks/product/actions";
 import { useHistory } from "react-router";
 import Authorization from "../../Authorization";
 
 export default function Form() {
-  const user = useSelector((state: any) => state.usersReducer);
   const { register, errors, handleSubmit } = useForm();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -59,7 +57,7 @@ export default function Form() {
 
         <input type="submit" />
       </form>
-      <Authorization />
+      <Authorization permissions={["admin", "editor"]} />
     </>
   );
 }

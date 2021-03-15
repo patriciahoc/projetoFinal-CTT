@@ -17,7 +17,11 @@ const Header = () => {
 
   const close = () => {
     dispatch(postLoginClose());
+    localStorage.clear();
     history.push("/login");
+  };
+  const hasPermission = (role: string) => {
+    return user && user.role === role;
   };
 
   return (
@@ -26,30 +30,37 @@ const Header = () => {
         <div className="container-logo">
           <img src={Logo1} alt="" />
           <img src={Logo2} alt="" />
-
+        </div>
+        <div className="container-rotas">
+          <NavLink to="/emporio">Site Empório</NavLink>
+          {hasPermission("") && (
+            <>
+              <NavLink to="/home">Home</NavLink>
+            </>
+          )}
+          {hasPermission("admin" && "editor") && (
+            <>
+              <NavLink to="/produtos">Produtos</NavLink>
+            </>
+          )}
+          {hasPermission("admin") && (
+            <>
+              <NavLink to="/controle-usuarios">Usuarios</NavLink>
+            </>
+          )}
+        </div>
+        <div>
           {!user.id ? (
             <NavLink to="/login">
               <RiFileUserLine /> Login
             </NavLink>
           ) : (
             <div className="sair">
+              <h3>{user.name}</h3>
               <span onClick={() => close()}>Sair</span>
               <FaPowerOff />
             </div>
           )}
-        </div>
-        <div className="container-rotas">
-          <NavLink to="/emporio">Site Empório</NavLink>
-
-          <NavLink to="/produtos">Produtos</NavLink>
-          <NavLink to="/cadastro-produtos">Cadastro Produtos</NavLink>
-
-          <NavLink to="/controle-usuarios">Usuarios</NavLink>
-          <NavLink to="/cadastro-usuarios">Cadastro usuario</NavLink>
-
-          <h3>
-            {user.name} | {user.role}
-          </h3>
         </div>
       </Container>
     </>

@@ -12,6 +12,7 @@ const Emporio = () => {
     if (user.id) {
       dispatch(getProductRequest());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -27,7 +28,7 @@ const Emporio = () => {
             </div>
           ))}
       </>
-      <Authorization />
+      <Authorization permissions={["admin", "editor"]} />
     </div>
   );
 };

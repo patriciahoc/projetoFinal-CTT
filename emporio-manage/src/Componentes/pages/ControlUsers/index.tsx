@@ -54,7 +54,7 @@ const ControlUsers = () => {
             ))}
         </tbody>
       </table>
-      <Authorization />
+      <Authorization permissions={["admin"]} />
     </div>
   );
 };

@@ -13,8 +13,8 @@ const Products = () => {
   const products = useSelector((state: any) => state.productsReducer);
   const user = useSelector((state: any) => state.usersReducer);
 
-  const hasPermission = (role: number) => {
-    return user && +user.role === role;
+  const hasPermission = (role: string) => {
+    return user && user.role === role;
   };
 
   const removeProduct = (id: number) => {
@@ -23,7 +23,7 @@ const Products = () => {
   };
 
   useEffect(() => {
-    if (user.accessToken) {
+    if (user.id) {
       dispatch(getProductRequest());
     }
   }, []);
@@ -33,6 +33,7 @@ const Products = () => {
       <div>
         <NavLink to="/cadastro-produtos">novo</NavLink>
       </div>
+
       <table>
         <thead>
           <tr>
@@ -48,7 +49,7 @@ const Products = () => {
                 <td>{item.title}</td>
                 <td>{item.price}</td>
                 <td>
-                  {hasPermission(1) && (
+                  {hasPermission("admin") && (
                     <button onClick={() => removeProduct(item.id)}>X</button>
                   )}
                 </td>
@@ -57,7 +58,7 @@ const Products = () => {
         </tbody>
       </table>
       <NavLink to="/emporio">Preview</NavLink>
-      <Authorization />
+      <Authorization permissions={["admin", "editor"]} />
     </div>
   );
 };

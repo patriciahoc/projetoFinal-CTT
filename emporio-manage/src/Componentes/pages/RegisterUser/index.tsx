@@ -56,7 +56,7 @@ export default function Form() {
         {errors.role && <span role="alert">Campo obrigatório</span>}
         <input type="submit" />
       </form>
-      <Authorization />
+      <Authorization permissions={["admin"]} />
     </>
   );
 }

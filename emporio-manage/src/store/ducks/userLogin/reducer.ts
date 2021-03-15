@@ -37,7 +37,6 @@ const usersReducer: Reducer = (
         error: true,
       };
     case UserAction.POST_LOGIN_CLOSE:
-      localStorage.clear();
       return INITIAL_STATE_USER_LOGIN;
 
     default:
