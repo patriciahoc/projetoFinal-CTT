@@ -1,5 +1,4 @@
-import { stat } from "node:fs";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import { getControlUsersRequest } from "../../../store/ducks/controlUsers/actions";
@@ -23,7 +22,7 @@ const ControlUsers = () => {
     if (user.accessToken) {
       dispatch(getControlUsersRequest());
     }
-  }, []);
+  }, [dispatch, user.accessToken]);
   return (
     <div>
       <div>
@@ -52,7 +51,7 @@ const ControlUsers = () => {
             ))}
         </tbody>
       </table>
-      {!user.accessToken && <Redirect to="/" />}
+      {!user.accessToken && <Redirect to="/login" />}
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import { postProductRequest } from "../../../store/ducks/product/actions";
@@ -14,7 +13,6 @@ export default function Form() {
 
   const onSubmit = (data: any) => {
     dispatch(postProductRequest(data));
-    toast("Formulário enviado!");
     history.push("/produtos");
   };
 
@@ -29,6 +27,7 @@ export default function Form() {
           name="title"
           ref={register({ required: true })}
         />
+        {errors.title && <span role="alert">Campo obrigatório</span>}
 
         <label>Preço</label>
         <input
@@ -37,7 +36,7 @@ export default function Form() {
           name="price"
           ref={register({ required: true })}
         />
-        {errors.price && <p role="alert">Campo obrigatório</p>}
+        {errors.price && <span role="alert">Campo obrigatório</span>}
 
         <label>Descrição</label>
         <input
@@ -46,7 +45,7 @@ export default function Form() {
           name="description"
           ref={register({ required: true })}
         />
-        {errors.description && <p role="alert">Campo obrigatório</p>}
+        {errors.description && <span role="alert">Campo obrigatório</span>}
 
         <label>Imagem</label>
         <input
@@ -55,12 +54,11 @@ export default function Form() {
           name="image"
           ref={register({ required: true })}
         />
-        {errors.image && <p role="alert">Campo obrigatório</p>}
+        {errors.image && <span role="alert">Campo obrigatório</span>}
 
         <input type="submit" />
-        <Toaster />
-        {!user.accessToken && <Redirect to="/" />}
       </form>
+      {!user.accessToken && <Redirect to="/login" />}
     </>
   );
 }

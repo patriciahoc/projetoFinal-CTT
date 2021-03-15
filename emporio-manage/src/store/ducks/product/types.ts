@@ -14,6 +14,8 @@ export enum ProductAction {
 
 export interface ProductState {
   items: Product[];
+  loading: boolean;
+  error: boolean;
 }
 
 export interface Product {

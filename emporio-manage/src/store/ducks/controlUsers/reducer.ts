@@ -27,7 +27,6 @@ const ControlUsersReducer: Reducer = (
     case ControlUsersAction.POST_CONTROL_USERS_FAILURE:
       return {
         ...state,
-        items: [],
         error: true,
         loading: false,
       };
@@ -47,7 +46,24 @@ const ControlUsersReducer: Reducer = (
     case ControlUsersAction.GET_CONTROL_USERS_FAILURE:
       return {
         ...state,
-        items: [],
+        error: true,
+        loading: false,
+      };
+    case ControlUsersAction.DEL_CONTROL_USERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    case ControlUsersAction.DEL_CONTROL_USERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+      };
+    case ControlUsersAction.DEL_CONTROL_USERS_FAILURE:
+      return {
+        ...state,
         error: true,
         loading: false,
       };

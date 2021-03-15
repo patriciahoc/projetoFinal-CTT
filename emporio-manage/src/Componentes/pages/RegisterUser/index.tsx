@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import { postControlUsersRequest } from "../../../store/ducks/controlUsers/actions";
@@ -12,9 +11,8 @@ export default function Form() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const onSubmit = (data: any) => {
-    dispatch(postControlUsersRequest(data));
-    toast("Formulário enviado!");
+  const onSubmit = (user: any) => {
+    dispatch(postControlUsersRequest(user));
     history.push("/controle-usuarios");
   };
 
@@ -29,7 +27,7 @@ export default function Form() {
           name="name"
           ref={register({ required: true })}
         />
-        {errors.name && <p role="alert">Campo obrigatório</p>}
+        {errors.name && <span role="alert">Campo obrigatório</span>}
 
         <label>Email</label>
         <input
@@ -38,40 +36,28 @@ export default function Form() {
           name="email"
           ref={register({ required: true })}
         />
-        {errors.email && <p role="alert">Campo obrigatório</p>}
+        {errors.email && <span role="alert">Campo obrigatório</span>}
 
         <label>Senha</label>
         <input
-          type="number"
+          type="password"
           title="password"
           name="password"
           ref={register({ required: true })}
         />
-        {errors.password && <p role="alert">Campo obrigatório</p>}
+        {errors.password && <span role="alert">Campo obrigatório</span>}
 
         <label>Nivel de acesso</label>
-        {errors.acesso && <p role="alert">Campo Obrigatório</p>}
-        <label>Administrador</label>
-        <input
-          title="acesso"
-          name="admin"
-          type="radio"
-          value="admin"
-          ref={register({ required: true })}
-        />
-        <label>Editor</label>
-        <input
-          title="acesso"
-          name="editor"
-          type="radio"
-          value="editor"
-          ref={register({ required: true })}
-        />
 
+        <select name="role" ref={register} required>
+          <option value="">Selecione</option>
+          <option value="admin">Administrador</option>
+          <option value="editor">Editor</option>
+        </select>
+        {errors.role && <span role="alert">Campo obrigatório</span>}
         <input type="submit" />
-        <Toaster />
-        {!user.accessToken && <Redirect to="/" />}
       </form>
+      {!user.accessToken && <Redirect to="/login" />}
     </>
   );
 }

@@ -8,7 +8,6 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { postLoginRequest } from "../../store/ducks/userLogin/actions";
 import { UserLogin } from "./LoginTypes";
 import { Container } from "./style";
-import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm<UserLogin>();
@@ -18,7 +17,6 @@ const Login = () => {
 
   const onSubmit = (data: UserLogin) => {
     dispatch(postLoginRequest(data));
-    toast("Verifique permissão");
   };
 
   return (
@@ -68,7 +66,7 @@ const Login = () => {
         </div>
         <input type="submit" />
 
-        {user.accessToken || user.role ? <Redirect to="/home" /> : <Toaster />}
+        {user.accessToken && <Redirect to="/home" />}
       </form>
     </Container>
   );

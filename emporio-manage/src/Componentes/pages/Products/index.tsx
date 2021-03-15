@@ -56,7 +56,7 @@ const Products = () => {
             ))}
         </tbody>
       </table>
-      {!user.accessToken && <Redirect to="/" />}
+      {!user.accessToken && <Redirect to="/login" />}
     </div>
   );
 };

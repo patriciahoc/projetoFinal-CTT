@@ -8,3 +8,5 @@ export const postLoginSuccess = (data: any) =>
   action(UserAction.POST_LOGIN_SUCCESS, data);
 
 export const postLoginFailure = () => action(UserAction.POST_LOGIN_FAILURE);
+
+export const postLoginClose = () => action(UserAction.POST_LOGIN_CLOSE);

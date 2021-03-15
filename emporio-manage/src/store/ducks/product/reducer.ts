@@ -3,6 +3,8 @@ import { ProductAction, ProductState } from "./types";
 
 const INITIAL_STATE_CONTROL_PRODUCT: ProductState = {
   items: [],
+  loading: false,
+  error: false,
 };
 
 const productsReducer: Reducer = (
