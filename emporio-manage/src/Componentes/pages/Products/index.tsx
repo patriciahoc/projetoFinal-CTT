@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import {
   delProductRequest,
   getProductRequest,
 } from "../../../store/ducks/product/actions";
+import Authorization from "../../Authorization";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,8 @@ const Products = () => {
             ))}
         </tbody>
       </table>
-      {!user.accessToken && <Redirect to="/login" />}
+      <NavLink to="/emporio">Preview</NavLink>
+      <Authorization />
     </div>
   );
 };

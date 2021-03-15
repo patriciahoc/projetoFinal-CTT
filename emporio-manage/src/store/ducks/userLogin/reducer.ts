@@ -1,8 +1,8 @@
 import { Reducer } from "redux";
 import { UserAction, UserState } from "./types";
-import { decodeToken } from "react-jwt";
 
 const INITIAL_STATE_USER_LOGIN: UserState = {
+  id: undefined,
   name: undefined,
   accessToken: undefined,
   loading: false,
@@ -22,34 +22,23 @@ const usersReducer: Reducer = (
         error: false,
       };
     case UserAction.POST_LOGIN_SUCCESS:
-      const decodedToken = decodeToken(action.payload.data.accessToken);
-
-      localStorage.setItem("token", action.payload.data.accessToken);
-
       return {
         ...state,
         loading: false,
         error: false,
         accessToken: action.payload.data.accessToken,
-        role: decodedToken.sub,
-        name: action.payload.data,
+        id: action.payload.data.id,
+        name: action.payload.data.name,
+        role: action.payload.data.role,
       };
     case UserAction.POST_LOGIN_FAILURE:
       return {
-        ...state,
+        ...INITIAL_STATE_USER_LOGIN,
         error: true,
-        loading: false,
       };
     case UserAction.POST_LOGIN_CLOSE:
       localStorage.clear();
-      return {
-        ...state,
-        name: undefined,
-        role: undefined,
-        accessToken: undefined,
-        error: false,
-        loading: false,
-      };
+      return INITIAL_STATE_USER_LOGIN;
 
     default:
       return state;

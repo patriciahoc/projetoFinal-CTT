@@ -1,12 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import { useDispatch } from "react-redux";
 import { postControlUsersRequest } from "../../../store/ducks/controlUsers/actions";
 import { useHistory } from "react-router";
+import Authorization from "../../Authorization";
 
 export default function Form() {
-  const user = useSelector((state: any) => state.usersReducer);
   const { register, errors, handleSubmit } = useForm();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -57,7 +56,7 @@ export default function Form() {
         {errors.role && <span role="alert">Campo obrigatório</span>}
         <input type="submit" />
       </form>
-      {!user.accessToken && <Redirect to="/login" />}
+      <Authorization />
     </>
   );
 }

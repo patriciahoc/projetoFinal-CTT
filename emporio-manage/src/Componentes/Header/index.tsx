@@ -27,7 +27,7 @@ const Header = () => {
           <img src={Logo1} alt="" />
           <img src={Logo2} alt="" />
 
-          {!user.accessToken ? (
+          {!user.id ? (
             <NavLink to="/login">
               <RiFileUserLine /> Login
             </NavLink>
@@ -47,7 +47,9 @@ const Header = () => {
           <NavLink to="/controle-usuarios">Usuarios</NavLink>
           <NavLink to="/cadastro-usuarios">Cadastro usuario</NavLink>
 
-          <h3>{user.role}</h3>
+          <h3>
+            {user.name} | {user.role}
+          </h3>
         </div>
       </Container>
     </>

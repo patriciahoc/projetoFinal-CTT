@@ -1,18 +1,33 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductRequest } from "../../store/ducks/product/actions";
+import Authorization from "../Authorization";
 
 const Emporio = () => {
-  const user = useSelector((state: any) => state.usersReducer);
+  const products: any = useSelector((state: any) => state.productsReducer);
+  const user: any = useSelector((state: any) => state.usersReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user.id) {
+      dispatch(getProductRequest());
+    }
+  }, []);
+
   return (
     <div className="container-itens">
-      <div className="beer">
-        <h2> produto.title</h2>
-        <img src="produto.image" alt="Buzz" />
-        <h3>produto.description</h3>
-        <h3>produto.price</h3>
-      </div>
-      {!user.accessToken && <Redirect to="/login" />}
+      <>
+        {products &&
+          products.items.map((item: any) => (
+            <div className="beer">
+              <h2> {item.title}</h2>
+              {/* <img src={item.image} alt="Beers" /> */}
+              <h3>{item.description}</h3>
+              <h3>{item.price}</h3>
+            </div>
+          ))}
+      </>
+      <Authorization />
     </div>
   );
 };

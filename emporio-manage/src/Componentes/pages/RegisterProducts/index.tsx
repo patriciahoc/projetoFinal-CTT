@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import { postProductRequest } from "../../../store/ducks/product/actions";
 import { useHistory } from "react-router";
+import Authorization from "../../Authorization";
 
 export default function Form() {
   const user = useSelector((state: any) => state.usersReducer);
@@ -58,7 +59,7 @@ export default function Form() {
 
         <input type="submit" />
       </form>
-      {!user.accessToken && <Redirect to="/login" />}
+      <Authorization />
     </>
   );
 }

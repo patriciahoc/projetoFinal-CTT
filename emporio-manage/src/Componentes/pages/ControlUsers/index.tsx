@@ -1,16 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getControlUsersRequest } from "../../../store/ducks/controlUsers/actions";
 import { delControlUsers } from "../../../store/ducks/controlUsers/sagas";
+import Authorization from "../../Authorization";
 
 const ControlUsers = () => {
   const dispatch = useDispatch();
   const listUsers = useSelector((state: any) => state.controlUsersReducer);
+
   const user = useSelector((state: any) => state.usersReducer);
 
-  const hasPermission = (role: number) => {
-    return user && +user.role === role;
+  const hasPermission = (role: string) => {
+    return user && user.role === role;
   };
 
   const removeProduct = (id: number) => {
@@ -19,10 +21,11 @@ const ControlUsers = () => {
   };
 
   useEffect(() => {
-    if (user.accessToken) {
+    if (user.id) {
       dispatch(getControlUsersRequest());
     }
-  }, [dispatch, user.accessToken]);
+  }, [dispatch, user.id]);
+
   return (
     <div>
       <div>
@@ -43,7 +46,7 @@ const ControlUsers = () => {
                 <td>{item.name}</td>
                 <td>{item.role}</td>
                 <td>
-                  {hasPermission(1) && (
+                  {hasPermission("admin") && (
                     <button onClick={() => removeProduct(item.id)}>X</button>
                   )}
                 </td>
@@ -51,7 +54,7 @@ const ControlUsers = () => {
             ))}
         </tbody>
       </table>
-      {!user.accessToken && <Redirect to="/login" />}
+      <Authorization />
     </div>
   );
 };

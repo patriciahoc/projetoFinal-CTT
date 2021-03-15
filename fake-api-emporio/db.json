@@ -20,6 +20,13 @@
       "name": "Patricia",
       "role": "admin",
       "id": 3
+    },
+    {
+      "email": "jeniffer@ctt.com",
+      "password": "$2a$10$Xm7m7wC.Jwq6CF7mOUTYZOFzhqB8fqv8QxsaS.IcSR8FLEjSy2W.S",
+      "name": "Jeniffer",
+      "role": "editor",
+      "id": 4
     }
   ],
   "register": [],
@@ -94,6 +101,13 @@
       "description": "Patagonia",
       "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/175507-1200-auto?width=1200&height=auto&aspect=true",
       "id": 9
+    },
+    {
+      "title": "Skol Bets zodiac",
+      "price": "R$ 8,99",
+      "description": "Skol",
+      "image": "https://uploads.metropoles.com/wp-content/uploads/2020/10/30172120/1BFE1552-C447-4E37-A07E-3A18149F0FDD-600x400.jpeg",
+      "id": 10
     }
   ]
 }

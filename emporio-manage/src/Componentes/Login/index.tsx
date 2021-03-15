@@ -12,9 +12,7 @@ import { Container } from "./style";
 const Login = () => {
   const { register, handleSubmit, errors } = useForm<UserLogin>();
   const user = useSelector((state: any) => state.usersReducer);
-
   const dispatch = useDispatch();
-
   const onSubmit = (data: UserLogin) => {
     dispatch(postLoginRequest(data));
   };
@@ -66,7 +64,7 @@ const Login = () => {
         </div>
         <input type="submit" />
 
-        {user.accessToken && <Redirect to="/home" />}
+        {user.id && <Redirect to="/home" />}
       </form>
     </Container>
   );

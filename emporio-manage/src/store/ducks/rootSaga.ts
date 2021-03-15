@@ -21,6 +21,6 @@ export default function* rootSaga(): any {
     takeLatest(ProductAction.DEL_PRODUCT_REQUEST, deleteProducts),
     takeLatest(ControlUsersAction.POST_CONTROL_USERS_REQUEST, postControlUsers),
     takeLatest(ControlUsersAction.GET_CONTROL_USERS_REQUEST, getControlUsers),
-    takeLatest(ControlUsersAction.GET_CONTROL_USERS_REQUEST, delControlUsers),
+    takeLatest(ControlUsersAction.DEL_CONTROL_USERS_REQUEST, delControlUsers),
   ]);
 }

@@ -6,13 +6,18 @@ export enum UserAction {
 }
 
 export interface UserState {
-  name: String | undefined;
+  id: number | undefined;
+  name: string | undefined;
   accessToken: string | undefined;
-  role: number | undefined;
+  role: string | undefined;
   loading: boolean;
   error: boolean;
 }
 
 export interface UserResponse {
+  data: UserResponseData;
+}
+
+export interface UserResponseData {
   accessToken: string;
 }
