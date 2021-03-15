@@ -7,7 +7,7 @@ import { ProductAction } from "./product/types";
 import { deleteProducts, getProducts, postProducts } from "./product/sagas";
 
 import { ControlUsersAction } from "./controlUsers/types";
-import { postControlUsers } from "./controlUsers/sagas";
+import { postControlUsers, getControlUsers } from "./controlUsers/sagas";
 
 export default function* rootSaga(): any {
   return yield all([
@@ -16,5 +16,6 @@ export default function* rootSaga(): any {
     takeLatest(ProductAction.GET_PRODUCT_REQUEST, getProducts),
     takeLatest(ProductAction.DEL_PRODUCT_REQUEST, deleteProducts),
     takeLatest(ControlUsersAction.POST_CONTROL_USERS_REQUEST, postControlUsers),
+    takeLatest(ControlUsersAction.GET_CONTROL_USERS_REQUEST, getControlUsers),
   ]);
 }

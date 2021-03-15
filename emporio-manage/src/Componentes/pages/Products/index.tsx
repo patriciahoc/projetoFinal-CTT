@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
+import { NavLink } from "react-router-dom";
 import {
   delProductRequest,
   getProductRequest,
@@ -29,6 +30,9 @@ const Products = () => {
 
   return (
     <div>
+      <div>
+        <NavLink to="/cadastro-produtos">novo</NavLink>
+      </div>
       <table>
         <thead>
           <tr>

@@ -1,15 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router";
+import { postProductRequest } from "../../../store/ducks/product/actions";
+import { useHistory } from "react-router";
 
 export default function Form() {
+  const user = useSelector((state: any) => state.usersReducer);
   const { register, errors, handleSubmit } = useForm();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    if (data) {
-      return toast("Formulário enviado!");
-    }
+    dispatch(postProductRequest(data));
+    toast("Formulário enviado!");
+    history.push("/produtos");
   };
 
   return (
@@ -53,6 +59,7 @@ export default function Form() {
 
         <input type="submit" />
         <Toaster />
+        {!user.accessToken && <Redirect to="/" />}
       </form>
     </>
   );

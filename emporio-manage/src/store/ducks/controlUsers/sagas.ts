@@ -7,12 +7,12 @@ import {
   postControlUsersFailure,
   postControlUsersSuccess,
 } from "./actions";
-import { ControlUsersReponse } from "./types";
+import { ControlUsers } from "./types";
 import ControlUsersService from "../../../services/User/controlUsers-service";
 
 export function* postControlUsers(action: any) {
   try {
-    const response: ControlUsersReponse = yield call(
+    const response: ControlUsers = yield call(
       ControlUsersService.postUsers,
       action.payload
     );
@@ -25,7 +25,7 @@ export function* postControlUsers(action: any) {
 
 export function* getControlUsers(action: any) {
   try {
-    const response: ControlUsersReponse = yield call(
+    const response: ControlUsers = yield call(
       ControlUsersService.getUsers,
       action.payload
     );
@@ -38,7 +38,7 @@ export function* getControlUsers(action: any) {
 
 export function* delControlUsers(action: any) {
   try {
-    const response: ControlUsersReponse = yield call(
+    const response: ControlUsers = yield call(
       ControlUsersService.deleteUsers,
       action.payload
     );

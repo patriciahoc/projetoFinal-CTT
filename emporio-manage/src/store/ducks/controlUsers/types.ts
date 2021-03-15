@@ -12,6 +12,15 @@ export enum ControlUsersAction {
   DEL_CONTROL_USERS_REQUEST = "@controlUsers/DEL_CONTROL_USERS_REQUEST",
 }
 
-export interface ControlUsersState {}
+export interface ControlUsersState {
+  items: ControlUsers[];
+  loading: boolean;
+  error: boolean;
+}
 
-export interface ControlUsersReponse {}
+export interface ControlUsers {
+  name: string;
+  email: string;
+  password: number;
+  role: string;
+}
