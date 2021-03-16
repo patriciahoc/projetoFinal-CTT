@@ -21,7 +21,7 @@ const ControlUsersReducer: Reducer = (
     case ControlUsersAction.POST_CONTROL_USERS_SUCCESS:
       return {
         ...state,
-        items: action.payload.data,
+        items: [...state, action.payload.data],
         loading: false,
         error: false,
       };

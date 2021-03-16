@@ -27,4 +27,26 @@ export const Container = styled.div`
     color: #2d3436;
     font-size: 18px;
   }
+  .content-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+  .content-user h3 {
+    margin-right: 10px;
+    display: flex;
+  }
+  .content-close {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+  }
+  .content-close span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cu
+  }
 `;

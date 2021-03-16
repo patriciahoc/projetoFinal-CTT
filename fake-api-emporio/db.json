@@ -13,20 +13,6 @@
       "name": "Maricio",
       "role": "editor",
       "id": 2
-    },
-    {
-      "email": "patricia1@gmail.com",
-      "password": "$2a$10$IyXRu0fUny5AuD/TSAxR1.weUv4hor2C4a9otINMOTTknvuWWt4Mu",
-      "name": "Patricia",
-      "role": "admin",
-      "id": 3
-    },
-    {
-      "email": "jeniffer@ctt.com",
-      "password": "$2a$10$Xm7m7wC.Jwq6CF7mOUTYZOFzhqB8fqv8QxsaS.IcSR8FLEjSy2W.S",
-      "name": "Jeniffer",
-      "role": "editor",
-      "id": 4
     }
   ],
   "register": [],
@@ -45,20 +31,6 @@
       "price": "R$ 29,94",
       "description": "Michelob Ultra",
       "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/179041-1200-auto?width=1200&height=auto&aspect=true"
-    },
-    {
-      "id": 2,
-      "title": "Cerveja Hoegaarden Wit 330ml ",
-      "price": "R$ 6,39",
-      "description": "Hoegaarden",
-      "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/169192-1200-auto?width=1200&height=auto&aspect=true"
-    },
-    {
-      "title": "Cerveja Patagonia Amber Lager 473ml",
-      "price": "R$ 7,99",
-      "description": "Patagonia",
-      "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/175507-1200-auto?width=1200&height=auto&aspect=true",
-      "id": 3
     },
     {
       "title": "Cerveja Patagonia Amber Lager 473ml",
@@ -96,13 +68,6 @@
       "id": 8
     },
     {
-      "title": "Cerveja Patagonia Amber Lager 473ml",
-      "price": "R$ 7,99",
-      "description": "Patagonia",
-      "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/175507-1200-auto?width=1200&height=auto&aspect=true",
-      "id": 9
-    },
-    {
       "title": "Skol Bets zodiac",
       "price": "R$ 8,99",
       "description": "Skol",
@@ -124,10 +89,10 @@
       "id": 12
     },
     {
-      "title": "Cerveja Patagonia Amber Lager 473ml",
+      "title": "Restaurant Attendant",
       "price": "R$ 7,99",
       "description": "Patagonia",
-      "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/175507-1200-auto?width=1200&height=auto&aspect=true",
+      "image": "https://emporiodacerveja.vtexassets.com/arquivos/ids/178530-1200-auto?width=1200&height=auto&aspect=tru",
       "id": 13
     }
   ]

@@ -7,6 +7,7 @@ import {
   getProductRequest,
 } from "../../../store/ducks/product/actions";
 import Authorization from "../../Authorization";
+import { Container } from "./style";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -29,37 +30,39 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <NavLink to="/cadastro-produtos">novo</NavLink>
-      </div>
+    <Container>
+      <div className="wrap">
+        <div className="container-link">
+          <NavLink to="/cadastro-produtos">Cadastrar</NavLink>
+          <NavLink to="/emporio">Preview</NavLink>
+        </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {products &&
-            products.items.map((item: any) => (
-              <tr key={item.id}>
-                <td>{item.title}</td>
-                <td>{item.price}</td>
-                <td>
-                  {hasPermission("admin") && (
-                    <button onClick={() => removeProduct(item.id)}>X</button>
-                  )}
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-      <NavLink to="/emporio">Preview</NavLink>
-      <Authorization permissions={["admin", "editor"]} />
-    </div>
+        <table className="container-table">
+          <thead className="container-header-table">
+            <tr className="container-header-items">
+              <th>Nome</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody className="container-items-table">
+            {products &&
+              products.items.map((item: any) => (
+                <tr className="container-items-item" key={item.id}>
+                  <td>{item.title}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    {hasPermission("admin") && (
+                      <button onClick={() => removeProduct(item.id)}>X</button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+
+        <Authorization permissions={["admin", "editor"]} />
+      </div>
+    </Container>
   );
 };
 

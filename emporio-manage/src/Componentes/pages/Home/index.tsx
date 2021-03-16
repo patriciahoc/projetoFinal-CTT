@@ -5,11 +5,12 @@ import { NavLink } from "react-router-dom";
 import { getControlUsersRequest } from "../../../store/ducks/controlUsers/actions";
 import { getProductRequest } from "../../../store/ducks/product/actions";
 import { GrView } from "react-icons/gr";
+import { Container } from "./style";
 
 const Home = () => {
   const products = useSelector((state: any) => state.productsReducer);
   const users = useSelector((state: any) => state.controlUsersReducer);
-
+  const user = useSelector((state: any) => state.usersReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,31 +18,43 @@ const Home = () => {
     dispatch(getProductRequest());
   }, []);
 
-  const hasPermission = (role: string) => {
-    return users && users.role === role;
+  const hasPermission = (roles: string[]) => {
+    return user && roles.includes(user.role);
   };
 
   return (
-    <div>
-      <div className="container-produtos">
-        <div>
-          <h3>{products.items.length}</h3>
+    <>
+      <Container>
+        <div className="wrap">
+          <div className="container-items">
+            <span>Produtos</span>
+            <div className="content-item">
+              <h3>{products.items.length}</h3>
+            </div>
+            <div className="content-show">
+              <NavLink to="/produtos">
+                <GrView />
+                <span>Ver mais</span>
+              </NavLink>
+            </div>
+          </div>
+          <div className="container-items">
+            <span>Usuários</span>
+            <div className="content-item">
+              <h3>{users.items.length}</h3>
+            </div>
+            <div className="content-show">
+              {hasPermission(["admin"]) && (
+                <NavLink to="/usuarios">
+                  <GrView />
+                  <span>Ver mais</span>
+                </NavLink>
+              )}
+            </div>
+          </div>
         </div>
-        <NavLink to="/produtos">
-          <GrView />
-        </NavLink>
-      </div>
-      <div className="container-usuarios">
-        <div>
-          <h3>{users.items.length}</h3>
-        </div>
-        {!hasPermission("admin") && (
-          <NavLink to="/usuarios">
-            <GrView />
-          </NavLink>
-        )}
-      </div>
-    </div>
+      </Container>
+    </>
   );
 };
 

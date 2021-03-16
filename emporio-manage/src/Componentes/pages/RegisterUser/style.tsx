@@ -4,48 +4,53 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 500px;
   padding: 10px;
+  width: 50%;
   margin: 0 auto;
   border-radius: 10px;
   border: 2px solid #ccc;
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: var(--bg-color-content);
 
-  .wrap {
+  .container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+  }
+  .container-head-form {
+    margin-bottom: 16px;
+  }
+  .container-head-form h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--font-color);
+  }
+  .container-items-form {
+    margin-bottom: 16px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  form {
-    margin-top: 20px;
-    width: 100%;
-  }
-  svg {
-    height: 16px;
-    width: 16px;
-  }
-  input {
-    margin-left: 10px;
+  .container-items-form input {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
+    border: 1px solid var(--border-color);
     padding: 6px;
     width: 100%;
     outline: none;
   }
-  select {
+  .container-items-form select {
     border: 1px solid var(--border-color);
     outline: none;
     padding: 8px;
     cursor: pointer;
     background-color: #ffff;
-    width: 100%;
   }
-  button {
+  .container-button button {
     width: 125px;
     cursor: pointer;
     border-radius: 25px;
@@ -55,42 +60,12 @@ export const Container = styled.div`
     font-size: 1rem;
     border: none;
   }
-  button:hover {
+  .container-button button:hover {
     background-color: var(--bg-color-input);
   }
   span {
     font-size: 10px;
     color: red;
     display: flex;
-  }
-  label {
-    margin-right: 16px;
-  }
-  .content-input {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  }
-
-  .content-input-field {
-    display: flex;
-    align-items: center;
-
-    padding: 8px;
-    border: 1px solid var(--border-color);
-  }
-  .container-logo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 10px 0;
-  }
-  .content-button {
-    display: flex;
-    justify-content: flex-end;
-    outline: none;
-  }
-  .content-role {
-    margin-bottom: 20px;
   }
 `;

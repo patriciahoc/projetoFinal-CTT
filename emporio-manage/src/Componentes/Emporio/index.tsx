@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductRequest } from "../../store/ducks/product/actions";
 import Authorization from "../Authorization";
+import { Container } from "./style";
 
 const Emporio = () => {
   const products: any = useSelector((state: any) => state.productsReducer);
@@ -16,20 +17,21 @@ const Emporio = () => {
   }, []);
 
   return (
-    <div className="container-itens">
-      <>
+    <Container>
+      <div className="container-items">
         {products &&
           products.items.map((item: any) => (
-            <div className="beer">
+            <div key={item.id} className="container-item">
               <h2> {item.title}</h2>
-              {/* <img src={item.image} alt="Beers" /> */}
+              <img src={item.image} alt="imagem produto" />
               <h3>{item.description}</h3>
               <h3>{item.price}</h3>
             </div>
           ))}
-      </>
-      <Authorization permissions={["admin", "editor"]} />
-    </div>
+
+        <Authorization permissions={["admin", "editor"]} />
+      </div>
+    </Container>
   );
 };
 
