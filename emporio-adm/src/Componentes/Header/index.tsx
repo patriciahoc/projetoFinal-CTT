@@ -18,7 +18,7 @@ const Header = () => {
   const close = () => {
     dispatch(postLoginClose());
     localStorage.clear();
-    history.push("/login");
+    history.push("/");
   };
   const hasPermission = (roles: string[]) => {
     return user && roles.includes(user.role);
@@ -33,7 +33,7 @@ const Header = () => {
             {hasPermission(["admin", "editor"]) && (
               <>
                 <NavLink to="/home">Home</NavLink>
-                <NavLink to="/emporio">Site Empório</NavLink>
+                <NavLink to="/emporio">Empório</NavLink>
                 <NavLink to="/produtos">Produtos</NavLink>
               </>
             )}
@@ -46,7 +46,7 @@ const Header = () => {
           </div>
           <div className="content-user">
             {!user.id ? (
-              <NavLink to="/login">
+              <NavLink to="/">
                 <RiFileUserLine /> Login
               </NavLink>
             ) : (

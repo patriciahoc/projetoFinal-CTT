@@ -58,7 +58,8 @@ const Login = () => {
                 name="password"
                 ref={register({
                   required: true,
-                  min: 8,
+                  min: 6,
+                  pattern: /[0-9]/,
                 })}
               />
             </div>

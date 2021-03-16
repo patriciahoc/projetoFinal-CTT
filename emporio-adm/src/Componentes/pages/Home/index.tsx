@@ -45,7 +45,7 @@ const Home = () => {
             </div>
             <div className="content-show">
               {hasPermission(["admin"]) && (
-                <NavLink to="/usuarios">
+                <NavLink to="/controle-usuarios">
                   <GrView />
                   <span>Ver mais</span>
                 </NavLink>

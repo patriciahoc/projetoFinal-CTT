@@ -10,7 +10,7 @@ import FormProducts from "./Componentes/pages/RegisterProducts";
 
 const Routes = () => (
   <Switch>
-    <Route path="/login" exact component={Login} />
+    <Route path="/" exact component={Login} />
     <Route path="/home" exact component={Home} />
     <Route path="/emporio" exact component={Emporio} />
     <Route path="/produtos" exact component={Products} />
