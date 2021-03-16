@@ -16,7 +16,7 @@ const Authorization = (props: AuthorizationProps) => {
     return props.permissions.includes(user.role);
   };
 
-  return <>{!hasPermission() && <Redirect to="/login" />}</>;
+  return <>{!hasPermission() && <Redirect to="/" />}</>;
 };
 
 export default Authorization;
